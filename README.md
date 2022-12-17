@@ -1,3 +1,5 @@
+*this project is using the AIEBootstrap*
+
 # aieBootstrap
 
 *NOTE: This project is no longer being actively maintained*
