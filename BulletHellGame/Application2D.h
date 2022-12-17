@@ -1,26 +1,34 @@
 #pragma once
 
 #include "Application.h"
+#include "GameStateManager.h"
 #include "Renderer2D.h"
+
+class GameStateManager;
 
 class Application2D : public aie::Application {
 public:
 
 	Application2D();
-	virtual ~Application2D();
+	~Application2D() override;
 
-	virtual bool startup();
-	virtual void shutdown();
+	bool startup() override;
 
-	virtual void update(float _deltaTime);
-	virtual void draw();
+	void shutdown() override;
+
+	void update(float _deltaTime) override;
+	void draw() override;
+
+	GameStateManager* GetGameStateManager()	{return m_gameStateManager;}
+	aie::Renderer2D* GetRenderer()	{return m_2dRenderer;}
 
 protected:
 
-	aie::Renderer2D*	m_2dRenderer;
-	aie::Texture*		m_texture;
-	aie::Texture*		m_shipTexture;
-	aie::Font*			m_font;
+private:
+	void Awake();
+	void Start();
 
-	float m_timer;
+	aie::Renderer2D*	m_2dRenderer;
+
+	GameStateManager* m_gameStateManager;
 };

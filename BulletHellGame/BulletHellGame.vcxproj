@@ -174,16 +174,20 @@
         <ClCompile Include="Application2D.cpp">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </ClCompile>
+        <ClCompile Include="GameStateManager.cpp" />
         <ClCompile Include="main.cpp">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </ClCompile>
+        <ClCompile Include="MenuState.cpp" />
         <ClCompile Include="SplashState.cpp" />
     </ItemGroup>
     <ItemGroup>
         <ClInclude Include="Application2D.h">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </ClInclude>
+        <ClInclude Include="GameStateManager.h" />
         <ClInclude Include="IGameState.h" />
+        <ClInclude Include="MenuState.h" />
         <ClInclude Include="SplashState.h" />
     </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
