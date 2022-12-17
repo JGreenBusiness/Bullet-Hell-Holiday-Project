@@ -7,12 +7,11 @@
 
 SplashState::SplashState(Application2D* _app)  : IGameState(_app)
 {
-    m_font = new aie::Font("./font/consolas.ttf", 32);
+    m_font = _app->GetFont();
 }
 
 SplashState::~SplashState()
 {
-    delete m_font;
 
 }
 
@@ -32,7 +31,6 @@ void SplashState::Update(float _dt)
 
     if(m_timer > 3.0)
     {
-        m_app->GetGameStateManager()->SetState("Splash",nullptr); // unload
         m_app->GetGameStateManager()->PopState();
         m_app->GetGameStateManager()->PushState("Menu");
     }

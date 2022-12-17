@@ -174,20 +174,245 @@
         <ClCompile Include="Application2D.cpp">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </ClCompile>
-        <ClCompile Include="GameStateManager.cpp" />
+        <ClCompile Include="GameOverState.cpp" />
+        <ClCompile Include="GameStateManager.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>Default</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>Default</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>
+            </PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\BulletHellGame.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\BulletHellGame.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <AdditionalIncludeDirectories>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\bootstrap;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/imgui;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/glm;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
         <ClCompile Include="main.cpp">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </ClCompile>
-        <ClCompile Include="MenuState.cpp" />
-        <ClCompile Include="SplashState.cpp" />
+        <ClCompile Include="MenuState.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>Default</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>Default</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>
+            </PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\BulletHellGame.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\BulletHellGame.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <AdditionalIncludeDirectories>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\bootstrap;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/imgui;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/glm;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
+        <ClCompile Include="PauseState.cpp" />
+        <ClCompile Include="PlayState.cpp" />
+        <ClCompile Include="SplashState.cpp">
+          <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+          <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+          <Optimization>Disabled</Optimization>
+          <SupportJustMyCode>true</SupportJustMyCode>
+          <AssemblerOutput>NoListing</AssemblerOutput>
+          <AssemblerListingLocation>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</AssemblerListingLocation>
+          <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+          <BrowseInformation>false</BrowseInformation>
+          <BrowseInformationFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</BrowseInformationFile>
+          <CompileAs>Default</CompileAs>
+          <ConformanceMode>Default</ConformanceMode>
+          <DiagnosticsFormat>Column</DiagnosticsFormat>
+          <DisableLanguageExtensions>false</DisableLanguageExtensions>
+          <ErrorReporting>Prompt</ErrorReporting>
+          <ExpandAttributedSource>false</ExpandAttributedSource>
+          <ExceptionHandling>Sync</ExceptionHandling>
+          <EnableASAN>false</EnableASAN>
+          <EnableFuzzer>false</EnableFuzzer>
+          <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+          <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+          <FloatingPointModel>Precise</FloatingPointModel>
+          <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+          <GenerateModuleDependencies>false</GenerateModuleDependencies>
+          <GenerateSourceDependencies>false</GenerateSourceDependencies>
+          <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+          <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+          <IntrinsicFunctions>false</IntrinsicFunctions>
+          <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+          <LanguageStandard>Default</LanguageStandard>
+          <LanguageStandard_C>Default</LanguageStandard_C>
+          <MinimalRebuild>false</MinimalRebuild>
+          <ModuleDependenciesFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ModuleDependenciesFile>
+          <ModuleOutputFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ModuleOutputFile>
+          <OmitDefaultLibName>false</OmitDefaultLibName>
+          <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+          <WholeProgramOptimization>false</WholeProgramOptimization>
+          <ObjectFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</ObjectFileName>
+          <CallingConvention>Cdecl</CallingConvention>
+          <ProgramDataBaseFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+          <PrecompiledHeader>
+            </PrecompiledHeader>
+          <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+          <PrecompiledHeaderOutputFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\BulletHellGame.pch</PrecompiledHeaderOutputFile>
+          <PreprocessToFile>false</PreprocessToFile>
+          <PreprocessKeepComments>false</PreprocessKeepComments>
+          <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+          <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+          <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+          <ShowIncludes>false</ShowIncludes>
+          <SourceDependenciesFile>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</SourceDependenciesFile>
+          <SuppressStartupBanner>true</SuppressStartupBanner>
+          <BufferSecurityCheck>true</BufferSecurityCheck>
+          <SmallerTypeCheck>false</SmallerTypeCheck>
+          <SpectreMitigation>false</SpectreMitigation>
+          <StructMemberAlignment>Default</StructMemberAlignment>
+          <TrackerLogDirectory>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\BulletHellGame.tlog\</TrackerLogDirectory>
+          <TranslateIncludes>false</TranslateIncludes>
+          <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+          <TreatWarningAsError>false</TreatWarningAsError>
+          <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+          <UseFullPaths>true</UseFullPaths>
+          <WarningLevel>Level3</WarningLevel>
+          <XMLDocumentationFileName>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\temp\BulletHellGame\x64\Debug\</XMLDocumentationFileName>
+          <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+          <IntelJCCErratum>false</IntelJCCErratum>
+          <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+          <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+          <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+          <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+          <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
+          <AdditionalIncludeDirectories>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\bootstrap;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/imgui;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/glm;</AdditionalIncludeDirectories>
+          <LinkCompiled>true</LinkCompiled>
+        </ClCompile>
     </ItemGroup>
     <ItemGroup>
         <ClInclude Include="Application2D.h">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </ClInclude>
+        <ClInclude Include="GameOverState.h" />
         <ClInclude Include="GameStateManager.h" />
         <ClInclude Include="IGameState.h" />
         <ClInclude Include="MenuState.h" />
+        <ClInclude Include="PauseState.h" />
+        <ClInclude Include="PlayState.h" />
         <ClInclude Include="SplashState.h" />
     </ItemGroup>
     <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

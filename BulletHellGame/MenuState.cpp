@@ -3,16 +3,17 @@
 #include <iostream>
 
 #include "Font.h"
+#include "Input.h"
+#include "PlayState.h"
 
 MenuState::MenuState(Application2D* _app) : IGameState(_app)
 {
-    m_font = new aie::Font("./font/consolas.ttf", 32);
+    m_font = _app->GetFont();
 
 }
 
 MenuState::~MenuState()
 {
-    delete m_font;
 }
 
 void MenuState::Load()
@@ -27,7 +28,14 @@ void MenuState::UnLoad()
 
 void MenuState::Update(float _dt)
 {
-    
+    aie::Input* input = aie::Input::getInstance();
+
+    if(input->wasKeyPressed(aie::INPUT_KEY_SPACE))
+    {
+        m_app->GetGameStateManager()->PopState();
+        m_app->GetGameStateManager()->SetState("Play", new PlayState(m_app));
+        m_app->GetGameStateManager()->PushState("Play");
+    }
 }
 
 void MenuState::Draw()

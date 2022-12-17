@@ -21,6 +21,8 @@ public:
 
 	GameStateManager* GetGameStateManager()	{return m_gameStateManager;}
 	aie::Renderer2D* GetRenderer()	{return m_2dRenderer;}
+	aie::Font* GetFont() {return m_font;}
+	
 
 protected:
 
@@ -29,6 +31,6 @@ private:
 	void Start();
 
 	aie::Renderer2D*	m_2dRenderer;
-
+	aie::Font* m_font;
 	GameStateManager* m_gameStateManager;
 };
