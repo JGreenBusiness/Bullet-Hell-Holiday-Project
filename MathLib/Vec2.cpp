@@ -15,6 +15,11 @@ namespace MathLib
             _lhs.y + _rhs.y);
     }
 
+    Vec2 Vec2::operator+(Vec2 _lhs, Vec2 _rhs)
+    {
+        return Add(_lhs, _rhs);
+    }
+
     Vec2 Vec2::Subtract(Vec2 _lhs, Vec2 _rhs)
     {
         return Vec2(
@@ -22,9 +27,24 @@ namespace MathLib
             _lhs.y - _rhs.y);
     }
 
+    Vec2 Vec2::operator-(Vec2 _lhs, Vec2 _rhs)
+    {
+        return Subtract(_lhs, _rhs);
+    }
+
     bool Vec2::Equal(Vec2 _lhs, Vec2 _rhs)
     {
         return _lhs.x == _rhs.x && _lhs.y == _rhs.y;
+    }
+
+    bool Vec2::operator==(Vec2 _lhs, Vec2 _rhs)
+    {
+        return Equal(_lhs, _rhs);
+    }
+
+    bool Vec2::operator!=(Vec2 _lhs, Vec2 _rhs)
+    {
+        return !(_lhs == _rhs);
     }
 
     Vec2 Vec2::PreScale(float _lhs, Vec2 _rhs)
@@ -46,6 +66,21 @@ namespace MathLib
         return Vec2(
             _lhs.x * _rhs.x,
             _lhs.y * _rhs.y);
+    }
+
+    Vec2 Vec2::operator*(float _lhs, Vec2 _rhs)
+    {
+        return PreScale(_lhs, _rhs);
+    }
+
+    Vec2 Vec2::operator*(Vec2 _lhs, Vec2 _rhs)
+    {
+        return Scale(_lhs, _rhs);
+    }
+
+    Vec2 Vec2::operator*(Vec2 _lhs, float _rhs)
+    {
+        return PostScale(_lhs, _rhs);
     }
 
     float Vec2::Length()

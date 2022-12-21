@@ -20,10 +20,19 @@ namespace MathLib
         static Vec2 Add(Vec2 _lhs, Vec2 _rhs);
         static Vec2 Subtract(Vec2 _lhs, Vec2 _rhs);
         static bool Equal(Vec2 _lhs, Vec2 _rhs);
+        
+        Vec2 operator +(Vec2 _lhs, Vec2 _rhs);
+        Vec2 operator - (Vec2 _lhs, Vec2 _rhs);
+        bool operator == (Vec2 _lhs, Vec2 _rhs);
+        bool operator !=(Vec2 _lhs, Vec2 _rhs);
 
         static Vec2 PreScale(float _lhs, Vec2 _rhs);
         static Vec2 PostScale(Vec2 _lhs, float _rhs);
         static Vec2 Scale(Vec2 _lhs, Vec2 _rhs);
+
+        Vec2 operator * (float _lhs, Vec2 _rhs);
+        Vec2 operator *(Vec2 _lhs, Vec2 _rhs);
+        Vec2 operator * (Vec2 _lhs, float _rhs);
 
         float Length();
         static float Distance(Vec2 _vector1, Vec2 _vector2);
