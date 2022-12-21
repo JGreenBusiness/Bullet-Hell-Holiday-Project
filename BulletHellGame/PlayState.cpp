@@ -1,8 +1,9 @@
 ﻿#include "PlayState.h"
-
+#include "Vec2.h"
 #include <iostream>
-
 #include "Input.h"
+
+using MathLib::Vec2;
 
 PlayState::PlayState(Application2D* _app)  : IGameState(_app)
 {
@@ -46,6 +47,14 @@ void PlayState::Update(float _dt)
 }
 void PlayState::Draw()
 {
+    Vec2* pos = new Vec2(300,400);
+    
+    Vec2* size = new Vec2(100,250);
+    Vec2* pivitPoint = new Vec2(200, 400);
+
+
+    pos->RotateAround(*pivitPoint,m_timer);
+    m_2dRenderer->drawBox(pos->x,pos->y,size->x,size->y,pos->Rotation());
     
     
     m_2dRenderer->drawText(m_font,"Play", m_app->getWindowWidth()/2,m_app->getWindowHeight()/2, 1);

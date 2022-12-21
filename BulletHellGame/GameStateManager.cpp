@@ -29,11 +29,6 @@ void GameStateManager::Update(float _deltaTime)
         cmd();
     }
     m_commands.clear();
-    
-    // for(auto state : m_stack)
-    // {
-    //     state->Update(_deltaTime);
-    // }
 
     m_stack.back()->Update(_deltaTime);
 }
