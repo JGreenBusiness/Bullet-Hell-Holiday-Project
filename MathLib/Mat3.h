@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Vec2.h"
+#include "Vec3.h"
 
 namespace MathLib
 {
@@ -40,10 +41,9 @@ namespace MathLib
         void SetScale(float _sx, float _sy, float _sz);
 
         static Mat3 Multiply(Mat3 _lhs, Mat3 _rhs);
+        static Vec3 MultiplyV3(Vec3 _lhs, Mat3 _rhs);
+        static Vec3 MultiplyV3(Mat3 _lhs, Vec3 _rhs);
         Mat3 operator *(Mat3 _lhs, Mat3 _rhs);
-        //static Mat3 Multiply(Vec3 lhs, Mat3 rhs);
-        //static Vec3 Multiply(Vec3 lhs, Mat3 rhs);
-        //static Vec3 Multiply(Mat3 lhs, Vec3 rhs);
         
         Vec2 TransformPoint(Vec2 _point);
         Vec2 TransformVector(Vec2 _vec);

@@ -292,6 +292,23 @@ namespace MathLib
         return result; 
     }
 
+    Vec3 Mat3::MultiplyV3(Vec3 _lhs, Mat3 _rhs)
+    {
+        return Vec3(
+                _lhs.x * _rhs.m1 + _lhs.y * _rhs.m4 + _lhs.z * _rhs.m7,
+                _lhs.x * _rhs.m2 + _lhs.y * _rhs.m5 + _lhs.z * _rhs.m8,
+                _lhs.x * _rhs.m3 + _lhs.y * _rhs.m6 + _lhs.z * _rhs.m9
+            );
+    }
+    Vec3 Mat3::MultiplyV3(Mat3 _lhs, Vec3 _rhs)
+    {
+        return Vec3(
+                (_lhs.m1 * _rhs.x) + (_lhs.m2 * _rhs.y) + (_lhs.m3 * _rhs.z),
+                (_lhs.m4 * _rhs.x) + (_lhs.m5 * _rhs.y) + (_lhs.m6 * _rhs.z), 
+                (_lhs.m7 * _rhs.x) + (_lhs.m8 * _rhs.y) + (_lhs.m9 * _rhs.z) 
+            );
+    }
+
     Mat3 Mat3::operator*(Mat3 _lhs, Mat3 _rhs)
     {
         return Multiply(_lhs, _rhs);
