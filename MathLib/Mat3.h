@@ -39,7 +39,8 @@ namespace MathLib
         void SetScale(Vec2 _scale);
         void SetScale(float _sx, float _sy, float _sz);
 
-        static auto Multiply(Mat3 _lhs, Mat3 rhs) -> Mat3;
+        static Mat3 Multiply(Mat3 _lhs, Mat3 _rhs);
+        Mat3 operator *(Mat3 _lhs, Mat3 _rhs);
         //static Mat3 Multiply(Vec3 lhs, Mat3 rhs);
         //static Vec3 Multiply(Vec3 lhs, Mat3 rhs);
         //static Vec3 Multiply(Mat3 lhs, Vec3 rhs);

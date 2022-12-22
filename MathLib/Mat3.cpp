@@ -13,9 +13,9 @@ namespace MathLib
 
     Mat3::Mat3(float _m1, float _m4, float _m7, float _m2, float _m5, float _m8, float _m3, float _m6, float _m9)
     {
-        this.m1 = _m1; this.m2 = _m2; this.m3 = _m3;
-        this.m4 = _m4; this.m5 = _m5; this.m6 = _m6;
-        this.m7 = _m7; this.m8 = _m8; this.m9 = _m9;
+        this->m1 = _m1; this->m2 = _m2; this->m3 = _m3;
+        this->m4 = _m4; this->m5 = _m5; this->m6 = _m6;
+        this->m7 = _m7; this->m8 = _m8; this->m9 = _m9;
     }
 
     Mat3 Mat3::CreateTranslation(float _tx, float _ty)
@@ -249,47 +249,52 @@ namespace MathLib
         m9 *= _sz;
     }
 
-    Mat3 Mat3::Multiply(Mat3 _lhs, Mat3 rhs)
+    Mat3 Mat3::Multiply(Mat3 _lhs, Mat3 _rhs)
     {
         Mat3 result = Mat3();
 
-        result.m1 = (_lhs.m1 * rhs.m1) +
-                    (_lhs.m2 * rhs.m4) +
-                    (_lhs.m3 * rhs.m7);
+        result.m1 = (_lhs.m1 * _rhs.m1) +
+                    (_lhs.m2 * _rhs.m4) +
+                    (_lhs.m3 * _rhs.m7);
 
-        result.m2 = (_lhs.m1 * rhs.m2) +
-                    (_lhs.m2 * rhs.m5) +
-                    (_lhs.m3 * rhs.m8);
+        result.m2 = (_lhs.m1 * _rhs.m2) +
+                    (_lhs.m2 * _rhs.m5) +
+                    (_lhs.m3 * _rhs.m8);
 
-        result.m3 = (_lhs.m1 * rhs.m3) +
-                    (_lhs.m2 * rhs.m6) +
-                    (_lhs.m3 * rhs.m9);
+        result.m3 = (_lhs.m1 * _rhs.m3) +
+                    (_lhs.m2 * _rhs.m6) +
+                    (_lhs.m3 * _rhs.m9);
 
-        result.m4 = (_lhs.m4 * rhs.m1) +     
-                    (_lhs.m5 * rhs.m4) +
-                    (_lhs.m6 * rhs.m7);
+        result.m4 = (_lhs.m4 * _rhs.m1) +     
+                    (_lhs.m5 * _rhs.m4) +
+                    (_lhs.m6 * _rhs.m7);
 
-        result.m5 = (_lhs.m4 * rhs.m2) +
-                    (_lhs.m5 * rhs.m5) +
-                    (_lhs.m6 * rhs.m8);
+        result.m5 = (_lhs.m4 * _rhs.m2) +
+                    (_lhs.m5 * _rhs.m5) +
+                    (_lhs.m6 * _rhs.m8);
 
-        result.m6 = (_lhs.m4 * rhs.m3) +
-                    (_lhs.m5 * rhs.m6) +
-                    (_lhs.m6 * rhs.m9);
+        result.m6 = (_lhs.m4 * _rhs.m3) +
+                    (_lhs.m5 * _rhs.m6) +
+                    (_lhs.m6 * _rhs.m9);
 
-        result.m7 = (_lhs.m7 * rhs.m1) +
-                    (_lhs.m8 * rhs.m4) +
-                    (_lhs.m9 * rhs.m7);
+        result.m7 = (_lhs.m7 * _rhs.m1) +
+                    (_lhs.m8 * _rhs.m4) +
+                    (_lhs.m9 * _rhs.m7);
 
-        result.m8 = (_lhs.m7 * rhs.m2) +
-                    (_lhs.m8 * rhs.m5) +
-                    (_lhs.m9 * rhs.m8);
+        result.m8 = (_lhs.m7 * _rhs.m2) +
+                    (_lhs.m8 * _rhs.m5) +
+                    (_lhs.m9 * _rhs.m8);
 
-        result.m9 = (_lhs.m7 * rhs.m3) +
-                    (_lhs.m8 * rhs.m6) +
-                    (_lhs.m9 * rhs.m9);
+        result.m9 = (_lhs.m7 * _rhs.m3) +
+                    (_lhs.m8 * _rhs.m6) +
+                    (_lhs.m9 * _rhs.m9);
 
         return result; 
+    }
+
+    Mat3 Mat3::operator*(Mat3 _lhs, Mat3 _rhs)
+    {
+        return Multiply(_lhs, _rhs);
     }
 
     Vec2 Mat3::TransformPoint(Vec2 point)
