@@ -12,10 +12,8 @@ SceneObject* SceneObject::GetParent()
 
 MathLib::Mat3 SceneObject::GetGlobalTransform()
 {
-    return parent == nullptr ? transform : transform * parent->GetGlobalTransform();
+    return parent == nullptr ? transform : MathLib::Mat3::Multiply(transform,parent->GetGlobalTransform());
 }
-
-template <class T>
 void SceneObject::Update()
 {
     OnUpdate();
@@ -23,15 +21,15 @@ void SceneObject::Update()
     if (isAlive == false)
         parent->RemoveChild(this);
 
-    for(auto action : m_updateChildActions<>)
+    for(auto action : m_updateChildActions)
     {
         action();
     }
-    m_updateChildActions<T>.clear();
+    m_updateChildActions.clear();
 
     for(auto child : children)
     {
-        child->Update<T>();
+        child->Update();
     }
 }
 
@@ -54,11 +52,11 @@ void SceneObject::OnDraw()
 
 void SceneObject::ItemAdd(SceneObject* _child)
 {
-    // if(_child->parent != nullptr)
-    //     _child->parent->RemoveChild(_child);
-    //
-    // _child->parent = this;
-    // children.push_back(_child);
+    if(_child->parent != nullptr)
+        _child->parent->RemoveChild(_child);
+    
+    _child->parent = this;
+    children.push_back(_child);
 }
 
 void SceneObject::ItemRemove(SceneObject* _child)
@@ -70,17 +68,15 @@ void SceneObject::ItemRemove(SceneObject* _child)
     // }
 }
 
-template <class T>
 void SceneObject::AddChild(SceneObject* _child)
 {
-    m_updateChildActions<T>.push_back(ItemAdd(_child));
+    //m_updateChildActions.push_back(ItemAdd(_child));
 }
 
-template <class T>
-void SceneObject::RemoveChild(SceneObject* child)
+void SceneObject::RemoveChild(SceneObject* _child)
 {
 }
 
-void SceneObject::SetParent(SceneObject* parent)
+void SceneObject::SetParent(SceneObject* _parent)
 {
 }

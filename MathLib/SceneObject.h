@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <list>
+#include <vector>
 
 #include "Mat3.h"
 
@@ -20,28 +21,25 @@ public:
     SceneObject* GetParent();
 
     MathLib::Mat3 GetGlobalTransform();
-
-    template <class T>
+    
     void Update();
     void Draw();
     virtual void OnUpdate();
     virtual void OnDraw();
 
     void ItemAdd(SceneObject* _child);
-    template <class T>
+    
     void AddChild(SceneObject* _child);
 
     void ItemRemove(SceneObject* _child);
-    template <class T>
-    void RemoveChild(SceneObject* child);
-    void SetParent(SceneObject* parent);
+    
+    void RemoveChild(SceneObject* _child);
+    void SetParent(SceneObject* _parent);
 
 protected:
     
 private:
-    
-    template <class ACTION_T>
-    std::list<ACTION_T> m_updateChildActions;
+    std::list<std::function<void>(void)> m_updateChildActions;
 
     
     

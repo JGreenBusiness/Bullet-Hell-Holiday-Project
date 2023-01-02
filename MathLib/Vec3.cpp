@@ -38,25 +38,25 @@ namespace MathLib
                     _lhs.z == _rhs.z;
     }
 
-    Vec3 Vec3::operator+(Vec3 _lhs, Vec3 _rhs)
-    {
-        return Add(_lhs, _rhs);
-    }
-
-    Vec3 Vec3::operator-(Vec3 _lhs, Vec3 _rhs)
-    {
-        return Subtract(_lhs,_rhs);
-    }
-
-    bool Vec3::operator==(Vec3 _lhs, Vec3 _rhs)
-    {
-        return Equals(_lhs, _rhs);
-    }
-
-    bool Vec3::operator!=(Vec3 _lhs, Vec3 _rhs)
-    {
-        return !Equals(_lhs, _rhs);
-    }
+    // Vec3 Vec3::operator+(Vec3 _lhs, Vec3 _rhs)
+    // {
+    //     return Add(_lhs, _rhs);
+    // }
+    //
+    // Vec3 Vec3::operator-(Vec3 _lhs, Vec3 _rhs)
+    // {
+    //     return Subtract(_lhs,_rhs);
+    // }
+    //
+    // bool Vec3::operator==(Vec3 _lhs, Vec3 _rhs)
+    // {
+    //     return Equals(_lhs, _rhs);
+    // }
+    //
+    // bool Vec3::operator!=(Vec3 _lhs, Vec3 _rhs)
+    // {
+    //     return !Equals(_lhs, _rhs);
+    // }
 
     Vec3 Vec3::PreScale(float _lhs, Vec3 _rhs)
     {
@@ -82,20 +82,20 @@ namespace MathLib
                 _lhs.z * _rhs);
     }
 
-    Vec3 Vec3::operator*(float _lhs, Vec3 _rhs)
-    {
-        return PreScale(_lhs,_rhs);
-    }
-
-    Vec3 Vec3::operator*(Vec3 _lhs, Vec3 _rhs)
-    {
-        return Multiply(_lhs,_rhs);
-    }
-
-    Vec3 Vec3::operator*(Vec3 _lhs, float _rhs)
-    {
-        return PostScale(_lhs,_rhs);
-    }
+    // Vec3 Vec3::operator*(float _lhs, Vec3 _rhs)
+    // {
+    //     return PreScale(_lhs,_rhs);
+    // }
+    //
+    // Vec3 Vec3::operator*(Vec3 _lhs, Vec3 _rhs)
+    // {
+    //     return Multiply(_lhs,_rhs);
+    // }
+    //
+    // Vec3 Vec3::operator*(Vec3 _lhs, float _rhs)
+    // {
+    //     return PostScale(_lhs,_rhs);
+    // }
 
     float Vec3::Length()
     {
@@ -104,7 +104,7 @@ namespace MathLib
 
     float Vec3::Distance(Vec3 _vector1, Vec3 _vector2)
     {
-        return (_vector1 - _vector2)->Length();
+        return (Subtract(_vector1,_vector2)).Length();
     }
 
     void Vec3::Normalise()

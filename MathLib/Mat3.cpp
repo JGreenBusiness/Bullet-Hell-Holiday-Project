@@ -309,10 +309,10 @@ namespace MathLib
             );
     }
 
-    Mat3 Mat3::operator*(Mat3 _lhs, Mat3 _rhs)
-    {
-        return Multiply(_lhs, _rhs);
-    }
+    // Mat3 Mat3::operator*(Mat3 _lhs, Mat3 _rhs)
+    // {
+    //     return Multiply(_lhs, _rhs);
+    // }
 
     Vec2 Mat3::TransformPoint(Vec2 point)
     {
