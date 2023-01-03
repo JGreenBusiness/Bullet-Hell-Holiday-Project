@@ -15,10 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Vec2.cpp">
+    <ClCompile Include="Circle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Mat3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Vec2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Vec3.cpp">
@@ -26,10 +38,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vec2.h">
+    <ClInclude Include="Circle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Mat3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Vec3.h">
