@@ -1,9 +1,14 @@
 ﻿#include "PlayState.h"
 #include "Vec2.h"
 #include <iostream>
+
+#include "imgui.h"
 #include "Input.h"
+#include "Rect.h"
 
 using MathLib::Vec2;
+using MathLib::Rect
+;
 
 PlayState::PlayState(Application2D* _app)  : IGameState(_app)
 {
@@ -47,14 +52,21 @@ void PlayState::Update(float _dt)
 }
 void PlayState::Draw()
 {
-    Vec2* pos = new Vec2(300,400);
+    Vec2 pos = Vec2(300,-400 + m_app->getWindowHeight());
+    Vec2 size = Vec2(m_modifier,m_modifier);
+
+
+    Vec2 mousePos =  Vec2(ImGui::GetMousePos().x,-ImGui::GetMousePos().y + m_app->getWindowHeight());
+
+    Rect rect =  Rect(Vec2(pos.x,pos.y),size);
     
-    Vec2* size = new Vec2(100,250);
-    Vec2* pivitPoint = new Vec2(200, 400);
-
-
-    pos->RotateAround(*pivitPoint,m_timer);
-    m_2dRenderer->drawBox(pos->x,pos->y,size->x,size->y,pos->Rotation());
+    if(rect.IsPointInside(mousePos))
+    {
+        std::cout << mousePos.x << " "<< mousePos.y << std::endl;
+    }
+   
+    
+    m_2dRenderer->drawBox(rect.Position.x,rect.Position.y,rect.GetSize().x,rect.GetSize().y);
     
     
     m_2dRenderer->drawText(m_font,"Play", m_app->getWindowWidth()/2,m_app->getWindowHeight()/2, 1);

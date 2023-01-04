@@ -39,7 +39,7 @@ public:
 protected:
     
 private:
-    std::list<std::function<void>(void)> m_updateChildActions;
+    // std::list<std::function<void>(void)> m_updateChildActions;
 
     
     
