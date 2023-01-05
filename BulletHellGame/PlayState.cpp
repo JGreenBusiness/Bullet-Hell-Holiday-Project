@@ -2,7 +2,7 @@
 #include "Vec2.h"
 #include <iostream>
 
-#include "imgui.h"
+#include "Button.h"
 #include "Input.h"
 #include "Rect.h"
 
@@ -34,9 +34,7 @@ void PlayState::Update(float _dt)
 {
     m_timer += _dt;
     
-    aie::Input* input = aie::Input::getInstance();
-
-    if(input->wasKeyPressed(aie::INPUT_KEY_SPACE))
+    if(m_input->wasKeyPressed(aie::INPUT_KEY_SPACE))
     {
         m_app->GetGameStateManager()->SetState("Play", nullptr);
 
@@ -44,7 +42,7 @@ void PlayState::Update(float _dt)
         m_app->GetGameStateManager()->PushState("GameOver");
     }
 
-    if(input->wasKeyPressed(aie::INPUT_KEY_P) )
+    if(m_input->wasKeyPressed(aie::INPUT_KEY_P) )
     {
         m_app->GetGameStateManager()->PushState("Pause");
     }
@@ -54,19 +52,17 @@ void PlayState::Draw()
 {
     Vec2 pos = Vec2(300,-400 + m_app->getWindowHeight());
     Vec2 size = Vec2(m_modifier,m_modifier);
+    Vec2 mousePos =  Vec2(m_input->getMouseX(),m_input->getMouseY());
 
+    Button button = Button(pos,size,m_app);
+    button.Draw();
+    button.Update(mousePos);
 
-    Vec2 mousePos =  Vec2(ImGui::GetMousePos().x,-ImGui::GetMousePos().y + m_app->getWindowHeight());
-
-    Rect rect =  Rect(Vec2(pos.x,pos.y),size);
-    
-    if(rect.IsPointInside(mousePos))
+    if(button.Clicked())
     {
-        std::cout << mousePos.x << " "<< mousePos.y << std::endl;
+        std::cout << "Clicked" << std::endl;
+        button.SetClicked(false);
     }
-   
-    
-    m_2dRenderer->drawBox(rect.Position.x,rect.Position.y,rect.GetSize().x,rect.GetSize().y);
     
     
     m_2dRenderer->drawText(m_font,"Play", m_app->getWindowWidth()/2,m_app->getWindowHeight()/2, 1);
