@@ -7,7 +7,7 @@ Button::Button(Vec2 _pos, Vec2 _size,Application2D* _app)
     m_input = aie::Input::getInstance();
     m_app = _app;
     m_2dRenderer = m_app->GetRenderer();
-    m_rect = new Rect(_pos,_size);
+    m_rect = new MathLib::Rect(_pos,_size);
 }
 
 Button::Button(Vec2 _pos, float _width, float _height,Application2D* _app)
@@ -16,7 +16,7 @@ Button::Button(Vec2 _pos, float _width, float _height,Application2D* _app)
 
     m_app = _app;
     m_2dRenderer = m_app->GetRenderer();
-    m_rect = new Rect(_pos,Vec2(_width,_height));
+    m_rect = new MathLib::Rect(_pos,Vec2(_width,_height));
 }
 
 Button::Button(float _xPos, float _yPos, float _width, float _height,Application2D* _app)
@@ -25,17 +25,18 @@ Button::Button(float _xPos, float _yPos, float _width, float _height,Application
 
     m_app = _app;
     m_2dRenderer = m_app->GetRenderer();
-    m_rect = new Rect(Vec2(_xPos,_yPos),Vec2(_width,_height));
+    m_rect = new MathLib::Rect(Vec2(_xPos,_yPos),Vec2(_width,_height));
 }
 
 Button::~Button()
 {
     delete m_rect;
+    m_rect = nullptr;
 }
 
-void Button::Update(Vec2 _mousePos)
+void Button::Update(Vec2* _mousePos)
 {
-    if(m_rect->IsPointInside(_mousePos))
+    if(m_rect->IsPointInside(*_mousePos))
     {
         m_hovering = true;
         OnHover();
@@ -54,13 +55,19 @@ void Button::Draw()
 
 void Button::OnClick()
 {
-    m_clicked = true;
+    m_clicked = !m_clicked;
 }
 
 void Button::OnHover()
 {
-    if(m_input->isMouseButtonDown(aie::INPUT_MOUSE_BUTTON_LEFT))
+    if(m_input->isMouseButtonDown(aie::INPUT_MOUSE_BUTTON_LEFT) && !m_mouseDown)
     {
+        m_mouseDown = true;
         OnClick();
+    }
+
+    if(m_input->isMouseButtonUp(aie::INPUT_MOUSE_BUTTON_LEFT) && m_mouseDown)
+    {
+        m_mouseDown = false;
     }
 }

@@ -1,5 +1,6 @@
 ﻿#pragma once
 
+#include "Button.h"
 #include "IGameState.h"
 
 class MenuState : public IGameState
@@ -18,5 +19,6 @@ public:
 protected:
 private:
     aie::Font* m_font;
+    Button* m_playButton;
 
 };

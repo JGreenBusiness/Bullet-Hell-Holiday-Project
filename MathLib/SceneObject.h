@@ -39,7 +39,14 @@ public:
 protected:
     
 private:
-    // std::list<std::function<void>(void)> m_updateChildActions;
+
+    // void Run(std::function<void()> _delegate)
+    // {
+    //     _delegate();
+    // }
+
+    // template <typename T>
+    // std::vector<std::function<T>(void())> m_updateChildActions;
 
     
     

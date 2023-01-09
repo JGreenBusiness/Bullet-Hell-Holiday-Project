@@ -50,19 +50,19 @@ void PlayState::Update(float _dt)
 }
 void PlayState::Draw()
 {
-    Vec2 pos = Vec2(300,-400 + m_app->getWindowHeight());
-    Vec2 size = Vec2(m_modifier,m_modifier);
-    Vec2 mousePos =  Vec2(m_input->getMouseX(),m_input->getMouseY());
-
-    Button button = Button(pos,size,m_app);
-    button.Draw();
-    button.Update(mousePos);
-
-    if(button.Clicked())
-    {
-        std::cout << "Clicked" << std::endl;
-        button.SetClicked(false);
-    }
+    // Vec2 pos = Vec2(300,-400 + m_app->getWindowHeight());
+    // Vec2 size = Vec2(m_modifier,m_modifier);
+    // Vec2 mousePos =  Vec2(m_input->getMouseX(),m_input->getMouseY());
+    //
+    // Button button = Button(pos,size,m_app);
+    // button.Draw();
+    // button.Update(mousePos);
+    //
+    // if(button.Clicked())
+    // {
+    //     std::cout << "Clicked" << std::endl;
+    //     button.SetClicked(false);
+    // }
     
     
     m_2dRenderer->drawText(m_font,"Play", m_app->getWindowWidth()/2,m_app->getWindowHeight()/2, 1);

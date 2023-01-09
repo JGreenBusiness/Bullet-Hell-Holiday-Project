@@ -244,8 +244,10 @@
       <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
       <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_UNICODE;UNICODE;</PreprocessorDefinitions>
-      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\MathLib;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\bootstrap;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/imgui;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/glm;</AdditionalIncludeDirectories>
+      <LinkCompiled>true</LinkCompiled>
       <LibCompiled>true</LibCompiled>
+      <SDLCheck>true</SDLCheck>
     </ClCompile>
     <ClCompile Include="GameOverState.cpp" />
     <ClCompile Include="GameStateManager.cpp">

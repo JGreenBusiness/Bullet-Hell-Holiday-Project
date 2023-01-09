@@ -64,13 +64,12 @@ void SceneObject::ItemRemove(SceneObject* _child)
     // if (_child->parent == this)
     // {
     //     _child->parent = nullptr;
-    //     chil
     // }
 }
 
 void SceneObject::AddChild(SceneObject* _child)
 {
-    //m_updateChildActions.push_back(ItemAdd(_child));
+    // m_updateChildActions.push_back(ItemAdd(_child));
 }
 
 void SceneObject::RemoveChild(SceneObject* _child)
