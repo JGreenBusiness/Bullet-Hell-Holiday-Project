@@ -477,6 +477,7 @@
       <AdditionalIncludeDirectories>C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\bootstrap;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/imgui;C:\Users\Justin\Desktop\Github\BulletHellCPP\Bullet-Hell-Holiday-Project\dependencies/glm;</AdditionalIncludeDirectories>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application2D.h">
@@ -490,6 +491,7 @@
     <ClInclude Include="PauseState.h" />
     <ClInclude Include="PlayState.h" />
     <ClInclude Include="SplashState.h" />
+    <ClInclude Include="Text.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bootstrap\Bootstrap.vcxproj">

@@ -37,6 +37,11 @@ public:
 	// sets the tint colour for all subsequent draw calls
 	void setRenderColour(float r, float g, float b, float a = 1.0f);
 	void setRenderColour(unsigned int colour);
+	float GetRed(){return m_r;}
+	float GetGreen(){return m_g;}
+	float GetBlue(){return m_b;}
+	float GetAlpha(){return m_a;}
+	void SetAlpha(float _alpha){m_a = _alpha;}
 
 	// can be used to set the texture coordinates of sprites using textures
 	// for all subsequent drawSprite calls

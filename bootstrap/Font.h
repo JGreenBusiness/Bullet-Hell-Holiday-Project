@@ -25,11 +25,16 @@ public:
 	// returns a rectangle that fits the string, with x0y0 being bottom left, x1y1 top right
 	void getStringRectangle(const char* str, float& x0, float& y0, float& x1, float& y1);
 
+	unsigned short GetFontSize();
+	void SetFontSize(unsigned short _size);
+
 private:
 
 	void*			m_glyphData;
 	unsigned int	m_glHandle, m_pixelBufferHandle;
 	unsigned short	m_textureWidth, m_textureHeight;
+
+	const char* m_trueTypeFontFile;
 };
 
 } // namespace aie

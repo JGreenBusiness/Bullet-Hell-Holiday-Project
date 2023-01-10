@@ -15,9 +15,9 @@ using aie::Application;
 class Button
 {
 public:
-    Button(Vec2 _pos, Vec2 _size,Application2D* _app );
-    Button(Vec2 _pos, float _width, float _height,Application2D* _app);
-    Button(float _xPos, float _yPos, float _width, float _height,Application2D* _app);
+    Button(Vec2 _pos, Vec2 _size,unsigned int _colour,Application2D* _app );
+    Button(Vec2 _pos, float _width, float _height,unsigned int _colour,Application2D* _app);
+    Button(float _xPos, float _yPos, float _width, float _height,unsigned int _colour,Application2D* _app);
     ~Button();
 
     void Update(Vec2* _mousePos);
@@ -37,8 +37,9 @@ private:
     bool m_mouseDown = false;
     bool m_hovering = false;
     
-    Renderer2D* m_2dRenderer;
+    Renderer2D* m_2dRend;
     aie::Input* m_input;
     Application2D* m_app;
+    unsigned int m_colour;
 
 };

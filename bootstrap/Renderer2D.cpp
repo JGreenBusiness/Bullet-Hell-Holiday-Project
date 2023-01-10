@@ -719,6 +719,7 @@ void Renderer2D::setRenderColour(unsigned int colour) {
 	m_b = ((colour & 0x0000FF00) >> 8) / 255.0f;
 	m_a = ((colour & 0x000000FF) >> 0) / 255.0f;
 }
+	
 
 void Renderer2D::setUVRect(float uvX, float uvY, float uvW, float uvH) {
 	m_uvX = uvX;

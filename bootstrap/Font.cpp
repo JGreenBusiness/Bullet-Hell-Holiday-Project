@@ -7,12 +7,15 @@
 
 namespace aie {
 
-Font::Font(const char* trueTypeFontFile, unsigned short fontHeight) 
+Font::Font(const char* trueTypeFontFile, unsigned short fontHeight)
+	
 	: m_glyphData(nullptr),
 	m_glHandle(0),
 	m_pixelBufferHandle(0),
 	m_textureWidth(0),
 	m_textureHeight(0) {
+
+	m_trueTypeFontFile = trueTypeFontFile;
 	
 	FILE* file = nullptr;
 	fopen_s(&file, trueTypeFontFile, "rb");
@@ -168,4 +171,13 @@ void Font::getStringRectangle(const char* str, float& x0, float& y0, float& x1, 
 	y1 *= -1;
 }
 
+unsigned short Font::GetFontSize()
+{
+	return (m_textureHeight + m_textureWidth )/2;
+}
+
+void Font::SetFontSize(unsigned short _size)
+{
+	Font(m_trueTypeFontFile, _size);
+}
 } // namepace aie

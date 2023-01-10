@@ -5,12 +5,14 @@
 #include "Font.h"
 #include "Input.h"
 #include "PlayState.h"
+#include "Text.h"
 
 MenuState::MenuState(Application2D* _app) : IGameState(_app)
 {
     m_font = _app->GetFont();
 
-    m_playButton = new Button(Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight()/2),40.0f,20.0f,m_app);
+    m_playButton = new Button(Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight()/2),Vec2(m_app->getWindowWidth()/8,m_app->getWindowHeight()/14),
+        0xa4dbe8ff,m_app);
 }
 
 MenuState::~MenuState()
@@ -46,6 +48,8 @@ void MenuState::Update(float _dt)
 
 void MenuState::Draw()
 {
-    m_playButton->Draw();
-    m_2dRenderer->drawText(m_font,"Menu", m_app->getWindowWidth()/2,m_app->getWindowHeight()/2, 1);
+    //m_2dRenderer->drawText(m_font,"Menu", m_app->getWindowWidth()/2,m_app->getWindowHeight()/2, 1);
+    Text menuText = Text("Menu",Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight()/2),m_font,50,0xffffffff,m_app);
+    menuText.Draw();
+    //m_playButton->Draw();
 }
