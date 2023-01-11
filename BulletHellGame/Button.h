@@ -5,6 +5,7 @@
 
 #include "Renderer2D.h"
 #include "C:/Users/Justin/Desktop/Github/BulletHellCPP/Bullet-Hell-Holiday-Project/MathLib/Vec2.h"
+#include "Text.h"
 
 
 using MathLib::Vec2;
@@ -15,17 +16,17 @@ using aie::Application;
 class Button
 {
 public:
-    Button(Vec2 _pos, Vec2 _size,unsigned int _colour,Application2D* _app );
-    Button(Vec2 _pos, float _width, float _height,unsigned int _colour,Application2D* _app);
-    Button(float _xPos, float _yPos, float _width, float _height,unsigned int _colour,Application2D* _app);
+    Button(Vec2 _pos, Vec2 _size,unsigned int _colour,const char* _text,aie::Font* _font,unsigned int _textColour);
     ~Button();
 
-    void Update(Vec2* _mousePos);
-    void Draw();
+    void Update(Vec2 _mousePos);
+    void Draw(Renderer2D* _renderer2D);
+    void DrawRect(Renderer2D* _renderer2D);
     bool Clicked() {return m_clicked;}
     void SetClicked(bool _clicked) {m_clicked = _clicked;}
     bool Hovering() {return m_hovering;}
     MathLib::Rect* GetRect() {return m_rect;}
+    Text* GetText(){return m_text;}
 
 protected:
 private:
@@ -37,9 +38,8 @@ private:
     bool m_mouseDown = false;
     bool m_hovering = false;
     
-    Renderer2D* m_2dRend;
     aie::Input* m_input;
-    Application2D* m_app;
     unsigned int m_colour;
+    Text* m_text;
 
 };

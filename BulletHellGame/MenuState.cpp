@@ -10,15 +10,23 @@
 MenuState::MenuState(Application2D* _app) : IGameState(_app)
 {
     m_font = _app->GetFont();
-
     m_playButton = new Button(Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight()/2),Vec2(m_app->getWindowWidth()/8,m_app->getWindowHeight()/14),
-        0xa4dbe8ff,m_app);
+        0xa4dbe8ff,"Play",m_font,0x000000ff);
+
+    m_quitButton = new Button(Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight()/4),Vec2(m_app->getWindowWidth()/8,m_app->getWindowHeight()/14),
+        0xa4dbe8ff,"Quit",m_font,0x000000ff);
+
+    m_titleText = new Text("Bullet Hell", Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight() - m_app->getWindowHeight()/8),m_font,0xffffffff);
+    m_titleText->SetCenterAlign(true);
 }
 
 MenuState::~MenuState()
 {
     delete m_playButton;
     m_playButton = nullptr;
+
+    delete m_quitButton;
+    m_quitButton = nullptr;
 }
 
 void MenuState::Load()
@@ -33,9 +41,9 @@ void MenuState::UnLoad()
 
 void MenuState::Update(float _dt)
 {
-    Vec2* mousePos = new Vec2(m_input->getMouseX(),m_input->getMouseY());
+    Vec2 mousePos = Vec2(m_input->getMouseX(),m_input->getMouseY());
     m_playButton->Update(mousePos);
-    delete mousePos;
+    m_quitButton->Update(mousePos);
 
     if(m_playButton->Clicked())
     {
@@ -44,12 +52,19 @@ void MenuState::Update(float _dt)
         m_app->GetGameStateManager()->PushState("Play");
         m_playButton->SetClicked(false);
     }
+
+    if(m_quitButton->Clicked())
+    {
+        m_app->quit();
+    }
+
+
+
 }
 
 void MenuState::Draw()
 {
-    //m_2dRenderer->drawText(m_font,"Menu", m_app->getWindowWidth()/2,m_app->getWindowHeight()/2, 1);
-    Text menuText = Text("Menu",Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight()/2),m_font,50,0xffffffff,m_app);
-    menuText.Draw();
-    //m_playButton->Draw();
+    m_playButton->Draw(m_2dRenderer);
+    m_quitButton->Draw(m_2dRenderer);
+    m_titleText->Draw(m_2dRenderer);
 }

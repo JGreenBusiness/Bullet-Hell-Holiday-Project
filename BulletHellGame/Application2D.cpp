@@ -42,7 +42,7 @@ void Application2D::Start()
 	m_gameStateManager->SetState("Pause", new PauseState(this));
 	m_gameStateManager->SetState("GameOver", new GameOverState(this));
 
-	m_gameStateManager->PushState("Menu");
+	m_gameStateManager->PushState("Splash");
 	
 }
 

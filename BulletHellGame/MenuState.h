@@ -20,5 +20,6 @@ protected:
 private:
     aie::Font* m_font;
     Button* m_playButton;
-
+    Button* m_quitButton;
+    Text* m_titleText;
 };
