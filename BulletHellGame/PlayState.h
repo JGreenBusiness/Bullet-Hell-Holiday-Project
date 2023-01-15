@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "IGameState.h"
+#include "Ship.h"
 
 
 class PlayState : public IGameState
@@ -21,4 +22,6 @@ private:
 
     float m_modifier = 50;
     float m_timer = 0;
+
+    Ship* m_player;
 };
