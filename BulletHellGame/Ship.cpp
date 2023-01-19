@@ -3,6 +3,8 @@
 #include <complex>
 #include <iostream>
 
+#include "Bullet.h"
+
 Ship::Ship(Vec2 _pos,Vec2 _size,Renderer2D* _renderer2D,aie::Input* _input)
 {
     m_renderer2D = _renderer2D;
@@ -25,13 +27,20 @@ Ship::~Ship()
         delete Sprite;
         Sprite = nullptr;
     }
+
+    if(m_bullet != nullptr)
+    {
+        delete m_bullet;
+        m_bullet = nullptr;
+    }
 }
 
 void Ship::Awake()
 {
+        m_bullet = nullptr;
 }
 
-void Ship::Update()
+void Ship::Update(float _dt)
 {
     m_pos = Transform.GetTranslation();
     m_hitBox->Position = m_pos;
@@ -50,6 +59,30 @@ void Ship::Update()
         Transform = Mat3::Multiply(Mat3::CreateTranslation(0,speed * m_input->isMouseButtonDown(aie::INPUT_MOUSE_BUTTON_RIGHT)),Transform);
     }
 
+    if(m_input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT))
+    {
+            Vec2 bulletPos = Vec2::Add(m_pos, Vec2::PostScale(dir,m_size.y));
+        if(m_bullet == nullptr)
+        {
+            std::cout << "shot" << std::endl;
+
+            m_bullet= new Bullet(dir,bulletPos,m_renderer2D);
+
+        }
+        else
+        {
+            std::cout << "shot" << std::endl;
+            delete m_bullet;
+            m_bullet= new Bullet(dir,bulletPos,m_renderer2D);
+        }
+        
+    }
+
+    if(m_bullet !=nullptr)
+    {
+        m_bullet->Update(_dt);
+    }
+
 }
 void Ship::Draw()
 {
@@ -61,5 +94,10 @@ void Ship::Draw()
     else
     {
         m_renderer2D->drawBox(m_pos.x,m_pos.y,m_size.x,m_size.y,Transform.GetRotationX(),1);
+    }
+
+    if(m_bullet !=nullptr)
+    {
+        m_bullet->Draw();
     }
 }

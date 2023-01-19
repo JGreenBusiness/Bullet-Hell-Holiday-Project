@@ -29,6 +29,7 @@ PlayState::~PlayState()
 void PlayState::Load()
 {
     std::cout << "Loading Play" << std::endl;
+    m_player->Awake();
 }
 
 void PlayState::UnLoad()
@@ -38,7 +39,7 @@ void PlayState::UnLoad()
 
 void PlayState::Update(float _dt)
 {
-    m_player->Update();
+    m_player->Update(_dt);
     
     m_timer += _dt;
     

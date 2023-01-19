@@ -9,7 +9,7 @@ class IEntity
 public:
     virtual ~IEntity() = default;
     virtual void Awake() = 0;
-    virtual void Update() = 0;
+    virtual void Update(float _dt) = 0;
     virtual void Draw() = 0;
     
     MathLib::Mat3 Transform;

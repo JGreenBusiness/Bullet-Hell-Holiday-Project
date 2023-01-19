@@ -174,6 +174,7 @@
     <ClCompile Include="Application2D.cpp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ClCompile>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Button.cpp">
       <RuntimeLibrary>MultiThreadedDebugDll</RuntimeLibrary>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -484,6 +485,7 @@
     <ClInclude Include="Application2D.h">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </ClInclude>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Button.h" />
     <ClInclude Include="GameOverState.h" />
     <ClInclude Include="GameStateManager.h" />
