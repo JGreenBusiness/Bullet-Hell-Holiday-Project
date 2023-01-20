@@ -34,6 +34,8 @@ void Bullet::Update(float _dt)
     m_pos = Transform.GetTranslation();
     
     Transform = Mat3::Multiply(Mat3::CreateTranslation(0,m_speed),Transform);
+
+    m_liveTime -= _dt;
 }
 
 void Bullet::Draw(Renderer2D* _renderer2D)

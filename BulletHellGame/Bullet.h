@@ -18,6 +18,8 @@ public:
     void Awake() override;
     void Update(float _dt) override;
     void Draw(Renderer2D* _renderer2D) override;
+
+    bool IsDead() {return m_liveTime <= 0;}
 protected:
 private:
     float m_speed = 20.0f;

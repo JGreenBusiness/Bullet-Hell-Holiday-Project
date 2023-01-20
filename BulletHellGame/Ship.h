@@ -25,7 +25,8 @@ protected:
     float m_health =1;
     Rect* m_hitBox;
 
-    Bullet* m_bullet;
+    const int m_MAX_BULLETS = 50;
+    Bullet* m_bullets[50];
 
     aie::Input* m_input;
  };

@@ -14,8 +14,13 @@ Ship::Ship(Vec2 _pos,Vec2 _size, aie::Input* _input)
     m_pos = Vec2(Transform.m7,Transform.m8);
     m_size = _size;
     m_hitBox = new Rect(m_pos,Vec2(m_size.x,m_size.y));
-    m_bullet = nullptr;
 
+    *m_bullets = new Bullet[m_MAX_BULLETS];
+
+    for(int i = 0; i < m_MAX_BULLETS; i++)
+    {
+        m_bullets[i] = nullptr;
+    }
 }
 
 Ship::~Ship()
@@ -29,11 +34,17 @@ Ship::~Ship()
         Sprite = nullptr;
     }
 
-    if(m_bullet != nullptr)
+    for(int i = 0; i < m_MAX_BULLETS; i++)
     {
-        delete m_bullet;
-        m_bullet = nullptr;
+        if(m_bullets[i] != nullptr)
+        {
+            delete m_bullets[i];
+            m_bullets[i] = nullptr;
+        }
     }
+
+    delete m_bullets;
+    *m_bullets = nullptr;
 }
 
 void Ship::Awake()
@@ -59,28 +70,33 @@ void Ship::Update(float _dt)
         Transform = Mat3::Multiply(Mat3::CreateTranslation(0,speed * m_input->isMouseButtonDown(aie::INPUT_MOUSE_BUTTON_RIGHT)),Transform);
     }
 
-    if(m_input->wasMouseButtonPressed(aie::INPUT_MOUSE_BUTTON_LEFT))
+    if(m_input->isMouseButtonDown(aie::INPUT_MOUSE_BUTTON_LEFT))
     {
-            Vec2 bulletPos = Vec2::Add(m_pos, Vec2::PostScale(dir,m_size.y));
-        if(m_bullet == nullptr)
-        {
-            std::cout << "shot" << std::endl;
+        Vec2 bulletPos = Vec2::Add(m_pos, Vec2::PostScale(dir,m_size.y));
 
-            m_bullet= new Bullet(dir,bulletPos);
-
-        }
-        else
+        for(int i = 0; i < m_MAX_BULLETS; i++)
         {
-            std::cout << "shot" << std::endl;
-            delete m_bullet;
-            m_bullet= new Bullet(dir,bulletPos);
+            if(m_bullets[i] == nullptr)
+            {
+                m_bullets[i] = new Bullet(dir,bulletPos);
+                std::cout << "Bullet created" << std::endl;
+                break;
+            }
+            else if(m_bullets[i]->IsDead())
+            {
+                delete m_bullets[i];
+                m_bullets[i] = nullptr;
+                std::cout << "Bullet destroyed" << std::endl;
+            }
         }
-        
     }
 
-    if(m_bullet !=nullptr)
+    for(int i = 0; i < m_MAX_BULLETS; i++)
     {
-        m_bullet->Update(_dt);
+        if(m_bullets[i] != nullptr)
+        {
+            m_bullets[i] ->Update(_dt);
+        }
     }
 
 }
@@ -96,8 +112,11 @@ void Ship::Draw(Renderer2D* _renderer2D)
         _renderer2D->drawBox(m_pos.x,m_pos.y,m_size.x,m_size.y,Transform.GetRotationX(),1);
     }
 
-    if(m_bullet !=nullptr)
+    for(int i = 0; i < m_MAX_BULLETS; i++)
     {
-        m_bullet->Draw(_renderer2D);
+        if(m_bullets[i] != nullptr)
+        {
+            m_bullets[i] ->Draw(_renderer2D);
+        }
     }
 }
