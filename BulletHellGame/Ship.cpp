@@ -5,9 +5,8 @@
 
 #include "Bullet.h"
 
-Ship::Ship(Vec2 _pos,Vec2 _size,Renderer2D* _renderer2D,aie::Input* _input)
+Ship::Ship(Vec2 _pos,Vec2 _size, aie::Input* _input)
 {
-    m_renderer2D = _renderer2D;
     m_input = _input;
     
     Transform.m7 = _pos.x;
@@ -15,6 +14,8 @@ Ship::Ship(Vec2 _pos,Vec2 _size,Renderer2D* _renderer2D,aie::Input* _input)
     m_pos = Vec2(Transform.m7,Transform.m8);
     m_size = _size;
     m_hitBox = new Rect(m_pos,Vec2(m_size.x,m_size.y));
+    m_bullet = nullptr;
+
 }
 
 Ship::~Ship()
@@ -37,7 +38,6 @@ Ship::~Ship()
 
 void Ship::Awake()
 {
-        m_bullet = nullptr;
 }
 
 void Ship::Update(float _dt)
@@ -66,14 +66,14 @@ void Ship::Update(float _dt)
         {
             std::cout << "shot" << std::endl;
 
-            m_bullet= new Bullet(dir,bulletPos,m_renderer2D);
+            m_bullet= new Bullet(dir,bulletPos);
 
         }
         else
         {
             std::cout << "shot" << std::endl;
             delete m_bullet;
-            m_bullet= new Bullet(dir,bulletPos,m_renderer2D);
+            m_bullet= new Bullet(dir,bulletPos);
         }
         
     }
@@ -84,20 +84,20 @@ void Ship::Update(float _dt)
     }
 
 }
-void Ship::Draw()
+void Ship::Draw(Renderer2D* _renderer2D)
 {
     if(Sprite != nullptr)
     {
         //m_renderer2D->drawBox(m_hitBox->Position.x, m_hitBox->Position.y,m_hitBox->GetSize().x,m_hitBox->GetSize().y,Transform.GetRotationX(),1);
-        m_renderer2D->drawSprite(Sprite,m_pos.x,m_pos.y,m_size.x*2,m_size.y*2,Transform.GetRotationX(),1);
+        _renderer2D->drawSprite(Sprite,m_pos.x,m_pos.y,m_size.x*2,m_size.y*2,Transform.GetRotationX(),1);
     }
     else
     {
-        m_renderer2D->drawBox(m_pos.x,m_pos.y,m_size.x,m_size.y,Transform.GetRotationX(),1);
+        _renderer2D->drawBox(m_pos.x,m_pos.y,m_size.x,m_size.y,Transform.GetRotationX(),1);
     }
 
     if(m_bullet !=nullptr)
     {
-        m_bullet->Draw();
+        m_bullet->Draw(_renderer2D);
     }
 }

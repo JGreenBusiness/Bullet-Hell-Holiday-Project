@@ -15,7 +15,7 @@ PlayState::PlayState(Application2D* _app)  : IGameState(_app)
     m_font = _app->GetFont();
 
     Vec2 pos = Vec2(m_app->getWindowWidth()/2,m_app->getWindowHeight()/2);
-    m_player = new Ship(pos,Vec2(50.0f,50.0f),m_2dRenderer,m_input);
+    m_player = new Ship(pos,Vec2(50.0f,50.0f),m_input);
     m_player->Sprite = new aie::Texture("./textures/ship.png");
 
 }
@@ -70,5 +70,5 @@ void PlayState::Draw()
     
     m_2dRenderer->drawText(m_font,timerChar, 20,20, 1);
 
-    m_player->Draw();
+    m_player->Draw(m_2dRenderer);
 }

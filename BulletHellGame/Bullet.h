@@ -11,13 +11,13 @@ using aie::Renderer2D;
 class Bullet : IEntity
 {
 public:
-    Bullet(Vec2 _bulletDir,Vec2 _pos,Renderer2D* _renderer2D);
+    Bullet(Vec2 _bulletDir,Vec2 _pos);
     Bullet();
     ~Bullet() override;
 
     void Awake() override;
     void Update(float _dt) override;
-    void Draw() override;
+    void Draw(Renderer2D* _renderer2D) override;
 protected:
 private:
     float m_speed = 20.0f;
@@ -25,7 +25,4 @@ private:
     Circle* m_hitBox;
 
     float m_liveTime = 1.0f;
-
-    Renderer2D* m_renderer;
-    
 };

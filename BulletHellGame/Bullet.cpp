@@ -3,10 +3,8 @@
 #include <valarray>
 
 
-Bullet::Bullet(Vec2 _bulletDir, Vec2 _pos,Renderer2D* _renderer2D)
+Bullet::Bullet(Vec2 _bulletDir, Vec2 _pos)
 {
-    m_renderer = _renderer2D;
-
    Transform.SetRotationZ(std::atan2(-_bulletDir.x,_bulletDir.y));
 
     m_pos = _pos;
@@ -17,7 +15,6 @@ Bullet::Bullet(Vec2 _bulletDir, Vec2 _pos,Renderer2D* _renderer2D)
 
 Bullet::Bullet()
 {
-    m_renderer = nullptr;
     m_hitBox = nullptr;
     
 }
@@ -39,7 +36,7 @@ void Bullet::Update(float _dt)
     Transform = Mat3::Multiply(Mat3::CreateTranslation(0,m_speed),Transform);
 }
 
-void Bullet::Draw()
+void Bullet::Draw(Renderer2D* _renderer2D)
 {
-    m_renderer->drawCircle(m_pos.x,m_pos.y, m_hitBox->Radius,.3f);
+    _renderer2D->drawCircle(m_pos.x,m_pos.y, m_hitBox->Radius,.3f);
 }
