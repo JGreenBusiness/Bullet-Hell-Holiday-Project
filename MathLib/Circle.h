@@ -14,7 +14,7 @@ namespace MathLib
         Vec2 Position = Vec2();
         float Radius = 1.0f;
 
-        Hit Intersects(Vec2 point);
+        Hit* Intersects(Vec2 point);
         Hit Intersects(Circle circle);
     };
 }

@@ -10,19 +10,19 @@ MathLib::Circle::~Circle()
 {
 }
 
-MathLib::Hit MathLib::Circle::Intersects(Vec2 point)
+MathLib::Hit* MathLib::Circle::Intersects(Vec2 point)
 {
     float distance = Vec2::Distance(Position, point);
     if (distance > Radius)
-        return Hit();
+        return nullptr;
 
     Vec2 closestPoint = Vec2::Add(Position , Vec2::PostScale(Vec2::Normalise(Vec2::Subtract(point , Position)),Radius));
     Vec2 delta  = Vec2::Subtract(closestPoint , point);
 
-    Hit hit =  Hit();
-    hit.pos = closestPoint;
-    hit.delta = delta;
-    hit.normal = Vec2::Normalise(hit.delta);
+    Hit* hit =  new Hit();
+    hit->pos = closestPoint;
+    hit->delta = delta;
+    hit->normal = Vec2::Normalise(hit->delta);
 
     return hit;
 }

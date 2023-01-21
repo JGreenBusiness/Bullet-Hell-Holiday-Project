@@ -19,11 +19,12 @@ public:
 protected:
     Vec2 m_pos;
     Vec2 m_size;
-    float m_speed = 0;
-    float m_velocity = 0;
-    float m_fireSpeed = 1;
-    float m_health =1;
-    Rect* m_hitBox;
+    float m_acceleration = 0.1f;
+    float m_velocity = 0.0f;
+    float m_velCap = 5.1f;
+    float m_fireSpeed = 1.0f;
+    float m_health =1.0f;
+    Circle* m_hitBox;
 
     const int m_MAX_BULLETS = 50;
     Bullet* m_bullets[50];

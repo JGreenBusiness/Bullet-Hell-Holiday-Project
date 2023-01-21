@@ -66,6 +66,7 @@ void PlayState::Draw()
 
     int timer = m_timer;
     char timerChar[2 + sizeof(char)];
+    timer = timer < 60 ? timer : (int)m_timer/60;
     std::sprintf(timerChar, "%d", timer);
     
     m_2dRenderer->drawText(m_font,timerChar, 20,20, 1);
