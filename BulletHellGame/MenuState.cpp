@@ -27,16 +27,19 @@ MenuState::~MenuState()
 
     delete m_quitButton;
     m_quitButton = nullptr;
+
+    delete m_titleText;
+    m_titleText = nullptr;
 }
 
 void MenuState::Load()
 {
-    std::cout << "Loading Menu" << std::endl;
+    //std::cout << "Loading Menu" << std::endl;
 }
 
 void MenuState::UnLoad()
 {
-    std::cout << "Unloading Menu" << std::endl;
+    //std::cout << "Unloading Menu" << std::endl;
 }
 
 void MenuState::Update(float _dt)

@@ -43,6 +43,11 @@ Ship::~Ship()
         }
         
     }
+
+    if(*m_bullets != nullptr)
+    {
+        *m_bullets = nullptr;
+    }
 }
 
 void Ship::Awake()
@@ -72,24 +77,35 @@ void Ship::Update(float _dt)
     }
     Transform = Mat3::Multiply(Mat3::CreateTranslation(0,(m_velocity < .1f) ? 0 : m_velocity ),Transform);
 
-    if(m_input->isMouseButtonDown(aie::INPUT_MOUSE_BUTTON_LEFT)&& Vec2::Distance(mousePos,m_pos) > m_hitBox->Radius)
-    {
-        Vec2 bulletPos = Vec2::Add(m_pos, Vec2::PostScale(dir,m_size.y));
 
-        for(int i = 0; i < m_MAX_BULLETS; i++)
+    if(m_reloadTime <= 0)
+    {
+        if(m_input->isMouseButtonDown(aie::INPUT_MOUSE_BUTTON_LEFT)&& Vec2::Distance(mousePos,m_pos) > m_hitBox->Radius)
         {
-            if(m_bullets[i] == nullptr)
+            Vec2 bulletPos = Vec2::Add(m_pos, Vec2::PostScale(dir,m_size.y));
+
+            for(int i = 0; i < m_MAX_BULLETS; i++)
             {
-                m_bullets[i] = new Bullet(dir,bulletPos);
-                break;
+                if(m_bullets[i] == nullptr)
+                {
+                    m_bullets[i] = new Bullet(dir,bulletPos);
+                    break;
+                }
+                else if(m_bullets[i]->IsDead())
+                {
+                    delete m_bullets[i];
+                    m_bullets[i] = nullptr;
+                }
             }
-            else if(m_bullets[i]->IsDead())
-            {
-                delete m_bullets[i];
-                m_bullets[i] = nullptr;
-            }
+
+            m_reloadTime = m_fireSpeed;
         }
     }
+    else
+    {
+        m_reloadTime -= _dt;
+    }
+   
 
     for(int i = 0; i < m_MAX_BULLETS; i++)
     {

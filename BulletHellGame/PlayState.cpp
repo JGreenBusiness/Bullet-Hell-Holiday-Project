@@ -24,17 +24,18 @@ PlayState::~PlayState()
 {
     delete m_player;
     m_player = nullptr;
+    
 }
 
 void PlayState::Load()
 {
-    std::cout << "Loading Play" << std::endl;
+    //std::cout << "Loading Play" << std::endl;
     m_player->Awake();
 }
 
 void PlayState::UnLoad()
 {
-    std::cout << "Unloading Play" << std::endl;
+    //std::cout << "Unloading Play" << std::endl;
 }
 
 void PlayState::Update(float _dt)

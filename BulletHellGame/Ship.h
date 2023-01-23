@@ -19,10 +19,11 @@ public:
 protected:
     Vec2 m_pos;
     Vec2 m_size;
-    float m_acceleration = 0.1f;
+    float m_acceleration = 0.5f;
     float m_velocity = 0.0f;
-    float m_velCap = 5.1f;
-    float m_fireSpeed = 1.0f;
+    float m_velCap = 8.1f;
+    float m_reloadTime = 0.0f;
+    float m_fireSpeed = 0.08f;
     float m_health =1.0f;
     Circle* m_hitBox;
 

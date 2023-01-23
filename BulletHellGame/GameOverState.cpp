@@ -14,12 +14,12 @@ GameOverState::~GameOverState()
 
 void GameOverState::Load()
 {
-    std::cout << "Loading GameOver" << std::endl;
+    //std::cout << "Loading GameOver" << std::endl;
 }
 
 void GameOverState::UnLoad()
 {
-    std::cout << "Unloading GameOver" << std::endl;
+    //std::cout << "Unloading GameOver" << std::endl;
 }
 
 void GameOverState::Update(float _dt)
